@@ -1,0 +1,25 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo">Logo</a>
+    <% if user_signed_in? %>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <div class="chip">
+          <%= current_user.email %>
+        </div>
+        <% if current_user.admin == true %>
+          <li>Add product(admin)</li>
+        <% end %>
+        <li>Chart</li>
+        <li><a href="products">Products</a></li>
+        <li>About Us</li>
+        <li><%= link_to "Logout", destroy_user_session_path %></li>
+      </ul>
+        <% else  %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Login", user_session_path %></li>
+        </ul>
+    <% end %>
+  </div>
+</nav>
