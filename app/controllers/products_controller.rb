@@ -9,10 +9,14 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def create
     @user = current_user
-    @photo = @user.products.new(product_params)
-    if @photo.save
+    @product = @user.products.new(product_params)
+    if @product.save
       redirect_to products_path
     else
       render :new
