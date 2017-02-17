@@ -12,8 +12,8 @@
         <% end %>
         <li>Chart</li>
         <li><a href="products">Products</a></li>
-        <li>About Us</li>
-        <li><%= link_to "Logout", destroy_user_session_path %></li>
+        <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>
         <% else  %>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
