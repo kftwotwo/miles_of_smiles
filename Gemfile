@@ -14,9 +14,18 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'devise'
+gem "paperclip"
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
