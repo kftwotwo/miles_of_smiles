@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip"
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platform: :mri
