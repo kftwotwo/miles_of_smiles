@@ -17,6 +17,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip"
 gem 'cancancan'
+gem 'materialize-sass'
 
 group :development, :test do
   gem 'byebug', platform: :mri
