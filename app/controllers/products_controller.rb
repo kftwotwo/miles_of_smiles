@@ -5,42 +5,54 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def new
-    @product = Product.new
-  end
-
   def show
     @product = Product.find(params[:id])
   end
 
-  def create
-    @user = current_user
-    @product = @user.products.new(product_params)
-    if @product.save
-      redirect_to products_path
-    else
-      render :new
+
+    def new
+      if current_user.admin == true
+        @product = Product.new
+      else
+        flash[:notice]="Have to be Admin"
+        redirect_to products_path
+      end
     end
-  end
 
-  def edit
-    @product = Product.find(params[:id])
-  end
-
-  def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to products_path
-    else
-      render :edit
+    def create
+        @user = current_user
+        @product = @user.products.new(product_params)
+        if @product.save
+          redirect_to products_path
+        else
+          render :new
+        end
     end
-  end
 
-  def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to products_path
-  end
+    def edit
+      if current_user.admin == true
+        @product = Product.find(params[:id])
+      else
+        flash[:notice]="Have to be Admin"
+        redirect_to products_path
+      end
+
+    end
+
+    def update
+      @product = Product.find(params[:id])
+      if @product.update(product_params)
+        redirect_to products_path
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @product = Product.find(params[:id])
+      @product.destroy
+      redirect_to products_path
+    end
 
 private
   def product_params

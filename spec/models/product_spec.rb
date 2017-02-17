@@ -10,4 +10,5 @@ describe Product do
   it { should have_db_column :created_at }
   it { should have_db_column :updated_at }
   it { should belong_to :user }
+  it { should have_many :reviews }
 end

@@ -3,7 +3,7 @@
 <%= @product.price %><br>
 
 <% @product.reviews.each do |review| %>
-  <li><%= review.content %> | <%= link_to 'Edit', edit_product_review_path(review.id) %> | <%= link_to 'Delete', product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"}  %></li>
+  <li><%= review.content %>  <% if current_user.id == review.user_id || current_user.admin == true %><%= link_to 'Edit', edit_product_review_path(review.id) %> | <%= link_to 'Delete', product_review_path(@product, review), :data => {:confirm => "You sure?", :method => "delete"}  %><% end %></li>
 <% end %>
 
 <%= link_to "New Review", new_product_review_path(@product.id) %>
