@@ -1,5 +1,5 @@
 <h1>Index</h1>
 
 <% @products.each do |product| %>
-  <h4><%= link_to product.name, product_path(product.id) %></h4>
+  <h4><%= link_to product.name, product_path(product.id) %> | <%= link_to 'Edit', edit_product_path(product.id) %> | <%= link_to 'Delete', product_path(product), :data => {:confirm => "You sure?", :method => "delete"}  %></h4>
 <% end %>
