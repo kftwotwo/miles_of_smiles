@@ -16,6 +16,7 @@ Clone the repository and `cd` into your directory:
 $ bundle install
 $ rake db:create
 $ rake db:migrate
+$ rake db:seed
 $ rake db:test:prepare
 ```
 
