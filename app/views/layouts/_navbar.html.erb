@@ -1,6 +1,6 @@
 <nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Logo</a>
+  <div class="nav-wrapper grey">
+    <a href="/" class="brand-logo">Just Smile</a>
     <% if user_signed_in? %>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -8,10 +8,9 @@
           <%= current_user.email %>
         </div>
         <% if current_user.admin == true %>
-          <li>Add product(admin)</li>
+          <li> <%= link_to "New Product", new_product_path %></li>
         <% end %>
-        <li>Chart</li>
-        <li><a href="products">Products</a></li>
+        <li><%= link_to "Products", products_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       </ul>

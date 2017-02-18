@@ -14,3 +14,11 @@
  *= require_self
  */
 @import "materialize";
+
+.wideoff {
+  width: 20000px;
+  margin-left: -180px
+}
+.section {
+  padding-left: 30px;
+}
