@@ -18,6 +18,7 @@ gem 'devise'
 gem "paperclip"
 gem 'cancancan'
 gem 'materialize-sass'
+gem 'rails_admin', '~> 1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
